@@ -1,0 +1,87 @@
+#!/bin/bash
+
+################################################################################
+#                                                                              #
+# Laboratorio de Circuitos Integrados (LCI)                                    #
+#                                                                              #
+# Criado para atender as necessidades do LCI                                   #
+#                                                                              $
+# 88040-900 Florianópolis, SC, Brazil                                          #
+# Phone: +55 48 3721-7720                                                      #
+#                                                                              #
+# Criado por: Gabriel Maranhao					               #
+#                                                                              #
+# Versao 1 - Suporte a SKY130 GF180mcu                                         #
+#                  							       #
+################################################################################
+
+
+
+while : ; do
+    clear
+    echo -e '\E[0;31;1m'"
+    ###################################################################
+    #                                                                 #
+    #        Laboratorio de Circuitos Integrados - LCI                #
+    #                                                                 #
+    #               CONFIGURACAO DO EDA OPEN-SOURCE                   #
+    #                                                                 #
+    #                                                                 #
+    #                                            Gabriel Maranhao     #
+    ###################################################################"
+    echo -e '\E[0m'"
+    
+        Diretorio de trabalho corrente: $PWD.
+
+    Se esse nao for o caminho correto, mude para o diretorio correto
+    antes de rodar este script.
+
+#
+# Escolher o Design Kit
+#
+        [0] SKY130                        0.13um
+        [1] GF180                         0.18um
+        [S] Sair"
+
+        read -p $'\n	  Escolha o Design Kit [1]> ' -r DK_OPTION
+
+        case $DK_OPTION  in
+
+                0) export PATH="$PATH:/home/$USER/.local/bin"
+		   export PDK_ROOT=/home/$USER/pdk
+                   export PDK=sky130A
+                   export KLAYOUT_PATH="$PDK_ROOT/sky130A/libs.tech/klayout"
+                   echo
+                   echo "	  SkyWater 130nm selcionado:"
+                   echo
+                   echo "	  Digite $ xschem"
+                   echo "	  Digite $ klayout -e"
+
+                break
+;;
+                1) export PATH="$PATH:/home/$USER/.local/bin"
+		   export PDK_ROOT=/home/$USER/pdk 
+                   export PDK=gf180mcuC
+                   export KLAYOUT_PATH="$PDK_ROOT/gf180mcuC/libs.tech/klayout"
+                   echo
+                   echo "GlobalFoundries 180nm 130nm selcionado:"
+                   echo
+                   echo "Digite $ xschem"
+                   echo "Digite $ klayout -e"
+
+                break
+;;
+################################
+# Sai do script de configuracao#
+################################
+                "s" | "S")
+                unset PDK
+                echo
+                echo "  Cancelado pelo usuario. Nenhum design kit configurado!"
+                echo
+                return
+                ;;
+        esac
+done
+
+

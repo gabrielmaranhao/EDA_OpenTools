@@ -1,0 +1,12 @@
+###### OPENVAF #########
+###### - https://openvaf.semimod.de/download/ - Look if there is a new version
+
+
+$ wget https://openva.fra1.cdn.digitaloceanspaces.com/openvaf_23_2_0_linux_amd64.tar.xz
+$ tar -xf openvaf_23_2_0_linux_amd64.tar.xz
+$ sudo cp -r openvaf /home/<USER_HERE>/.local/bin
+$ rm -f openvaf
+$ rm -f openvaf_23_2_0_linux_amd64.tar.xz
+$ cd /home/<USER-NAME>/.local/bin
+$ sudo chmod +x openvaf
+$ export PATH=$PATH:/home/<USER_HERE>/.local/bin
