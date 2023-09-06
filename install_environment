@@ -1,0 +1,153 @@
+##### GLOBALFOUNDRIES 180nm Open-Source PDK on ngspice+xschem+gaw+klayout on Ubuntu 22
+
+##### By: Gabriel Maranhao - LCI-UFSC (last edit: 29/08/2023)
+##### TO-DO: (Magic, Klayout, LVS-DRC)
+
+-> xscheme - A schematic capture tool
+-> ngspice - A circuit simulator
+-> gaw - A waveform viewer to view the simulation results (OPTIONAL)
+-> GlobalFoundries 180nm Open-Source PDK
+
+#Important pakages
+---------------------------
+
+sudo apt-get install -y libtool autoconf automake autoconf libxaw7-dev libreadline8 libreadline-dev bison byacc flex tcl tk tcl-dev tk-dev python3 python3-pip xz-utils libgtk-3-dev
+
+sudo apt install xterm graphicsmagick ghostscript
+
+#---- Klayout pakages for Ubuntu 22 (search your OS here: https://www.klayout.de/build.html)
+
+sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-dev qtmultimedia5-dev libqt5multimediawidgets5 libqt5svg5-dev ruby ruby-dev python3-dev libz-dev
+
+#------
+----------------------------
+
+
+0) Install git
+	- 0.1) $ sudo apt install git
+
+1) Install Xschem (More information on: https://github.com/bluecmd/learn-sky130/blob/main/schematic/xschem/getting-started.md#setting-up-the-simulation-configuration)
+	      $ # GraphicsMagick is needed for PNG export, ghostscript for pdf
+	      $ git clone https://github.com/StefanSchippers/xschem.git
+	      $ cd xschem
+	      $ ./configure
+              $ make -j$(nproc)
+              $ sudo make install
+              
+              
+2) Install ngspice-40 on /opt (Download "ngspice-40.tar.gz" at https://sourceforge.net/projects/ngspice/files/ng-spice-rework/40/ )
+	      	- 2.1) copy "ngspice-40.tar.gz" to \opt and follow instructions:
+	      $ sudo tar -xf ngspice-40.tar.gz
+	      $ cd ngspice-40/
+	      $ sudo ./configure --with-x --disable-debug --enable-cider --with-readline=yes --enable-openmp --enable-osdi
+	      $ sudo ./autogen.sh
+	      $ sudo make
+	      $ sudo make install
+	       
+	       
+3) (OPTIONAL) Install gaw (more information: https://github.com/bluecmd/learn-sky130/blob/main/schematic/xschem/getting-started.md#setting-up-the-simulation-configuration)
+	      $ wget http://download.tuxfamily.org/gaw/download/gaw3-20200922.tar.gz
+	      $ tar -xf gaw3-20200922.tar.gz
+              $ cd gaw3-20200922
+	      $ ./configure
+	      $ make -j$(nproc)
+	      $ sudo make install
+
+4) Tutorial for GF180MCU (until 11:00): https://www.youtube.com/watch?v=USCmZuREMTE
+	      $ sudo gedit ~/.bashrc
+	      	- Add follow lines:
+			export PDK_ROOT=/home/$USER/pdk
+			export PDK=gf180mcuC
+		- Save, exit
+	      $ source ~/.bashrc
+	      	- About Volare see: https://github.com/efabless/volare
+	      $ python3 -m pip install --upgrade --no-cache-dir volare
+	      $ export PATH="/home/<USR_NAME>/.local/bin:$PATH"
+	      $ volare ls-remote --pdk gf180mcu
+	      $ volare enable --pdk gf180mcu <INSERT-HERE-THE-LAST-VERSION>
+	      $ volare ls --pdk gf180mcu
+	      	- Make a directory to test tools:
+	      $ mkdir gf180_work
+	      $ cd gf180_work
+	      $ ln -s $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
+	      $ xschem
+	      	- Close xschem and the warning window
+	      	- See video at 8:05 -> https://youtu.be/USCmZuREMTE?t=485
+	      $ gedit $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
+	      	- Go to line 33, substitute it by:
+	      	  append XSCHEM_LIBRARY_PATH :$env(PDK_ROOT)/$env(PDK)/libs.tech/xschem
+	      	- Go to line 328, substitute it by:
+		  set 180MCU_MODELS $env(PDK_ROOT)/$env(PDK)/libs.tech/ngspice
+	      $ cp -r $PDK_ROOT/$PDK/libs.tech/xschem/tests $PDK_ROOT/$PDK/libs.tech/xschem/gf180mcu_tests
+	      $ cp -r $PDK_ROOT/$PDK/libs.tech/xschem/symbols $PDK_ROOT/$PDK/libs.tech/xschem/gf180mcu_tests/gf180mcu_fd_pr
+	      	
+5) Install KLayout (Download  at https://www.klayout.de/build.html)
+
+	     $ wget https://www.klayout.org/downloads/Ubuntu-22/klayout_0.28.10-1_amd64.deb
+	     $ sudo apt install gdebi
+	     $ sudo gdebi ./klayout_0.28.10-1_amd64.deb
+	     $ sudo gedit ~/.bashrc
+	      	- Add follow lines:
+			export KLAYOUT_PATH="$PDK_ROOT/gf180mcuC/libs.tech/klayout"
+		- Save, exit
+	     $ source ~/.bashrc
+		- You need to overwrite your /gf180mcuC/libs.tech/klayout folder with the contents from the following gzip package:
+		- Link to download: https://drive.google.com/file/d/1HXZFWZkhe3efBaPlNb2l3n6M-8vvCGt2/view?usp=share_link
+		- unzip and overwrite everything from /gf180mcuC/libs.tech/klayout
+	     $ klayout -e
+	     
+5.1) DRC+LVS (Klayout)
+	     $ git clone https://github.com/efabless/globalfoundries-pdk-libs-gf180mcu_fd_pv.git
+	     $ cd globalfoundries-pdk-libs-gf180mcu_fd_pv
+	     $ pip install -r requirements.txt
+	     $ cd klayout
+	     $ cd drc 
+	     or 
+	     $ cd lvs
+	     	- Read README.md and follow instructions
+	     	
+	     	DRC:
+	     	$ python3 run_drc.py --path=/PATH_TO_GDS/inverter.gds --variant=C --run_mode=deep --no_offgrid --run_dir=/PATH_TO_SELECTED_DIR/
+	     	
+	     	LVS:
+	     	& python3 run_lvs.py --layout=/PATH_TO_GDS/inverter.gds --netlist=/PATH_TO_NETLIST/inverter.spice --variant=C --run_mode=deep --lvs_sub=GND --run_dir=/PATH_TO_SELECTED_DIR/
+
+	     
+6) Install Magic
+	    
+	     $ sudo apt install m4 tcsh csh libx11-dev tcl-dev tk-dev libcairo2-dev mesa-common-dev libglu1-mesa-dev libncurses-dev
+	     $ git clone https://github.com/RTimothyEdwards/magic
+	     $ ./configure
+	     $ make -j$(nproc)
+	     $ sudo make install
+	     $ cd /usr/local/lib/magic/sys
+	     $ sudo ln -s $PDK_ROOT/$PDK/libs.tech/magic/* ./    (Change PDK_ROOT for Sky or GF)
+	     $ magic -rcfile $PDK_ROOT/$PDK/libs.tech/magic/sky130A.magicrc
+	     or
+	     $ magic -rcfile $PDK_ROOT/$PDK/libs.tech/magic/gf180mcuC.magicrc
+	     .
+	     .s
+	  
+6.1) PEX (Magic)
+	     - Run [run.sh] script with top cell name as argument, for example (inverter.gds):
+	     $ ./run_ex.sh inverter
+	     - The result file is the one that end with [.spice], for example inverter.spice
+	     	
+	     	
+	     	
+7) Sky Water
+	**TO DO**
+
+
+EXTRAS:
+#Important line for "GAW" configuration (OPTIONAL)
+----------------------------
+- Got to Menu"Simulations"-> "Configure Simulators and Tools"
+- on "spice"(Ngspice) insert this:
+
+	$terminal -e 'set -o pipefail; (ngspice -b -r "$n.raw" "$N" | tee "$n.out") || (echo -e "\n** ngspice exited with error code $? **\nPress enter to close"; read)'
+	
+
+- Save Configuration to File - Accept and Close
+
+- Keep "Fg" checked and "Status" unchecked
