@@ -52,6 +52,7 @@ while : ; do
                    export PDK=sky130A
                    export KLAYOUT_PATH="$PDK_ROOT/sky130A/libs.tech/klayout"
                    echo
+                   ln -s $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
                    echo "	  SkyWater 130nm selcionado:"
                    echo
                    echo "	  Digite $ xschem"
@@ -64,6 +65,7 @@ while : ; do
                    export PDK=gf180mcuC
                    export KLAYOUT_PATH="$PDK_ROOT/gf180mcuC/libs.tech/klayout"
                    echo
+                   ln -s $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
                    echo "GlobalFoundries 180nm 130nm selcionado:"
                    echo
                    echo "Digite $ xschem"
@@ -83,5 +85,3 @@ while : ; do
                 ;;
         esac
 done
-
-
