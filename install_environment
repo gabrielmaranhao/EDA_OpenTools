@@ -167,3 +167,11 @@ EXTRAS:
 - Save Configuration to File - Accept and Close
 
 - Keep "Fg" checked and "Status" unchecked
+
+#New USER's on same PC-Ubuntu
+---------------------------
+- Fix ".bashrc"
+- Fix "xschemrc" file for GF180 on setup.pdk
+- Install Volare, get all PDK's (GF and SKY)
+- Klayout fix, Google drive link
+- Do all steps of 5.1 for DRC and LVS
