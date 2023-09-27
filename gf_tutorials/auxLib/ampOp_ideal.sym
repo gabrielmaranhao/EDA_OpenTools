@@ -1,0 +1,28 @@
+v {xschem version=3.4.0 file_version=1.2
+}
+G {}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+}
+V {}
+S {}
+E {}
+L 4 110 -30 130 -30 {}
+L 4 40 -50 60 -50 {}
+L 4 40 -10 60 -10 {}
+L 4 60 -60 60 0 {}
+L 4 60 0 110 -30 {}
+L 4 60 -60 110 -30 {}
+L 7 80 -12.5 80 7.5 {}
+B 5 127.5 -32.5 132.5 -27.5 {name=out dir=out}
+B 5 37.5 -52.5 42.5 -47.5 {name=+ dir=in}
+B 5 37.5 -12.5 42.5 -7.5 {name=- dir=in}
+B 5 77.5 7.5 82.5 12.5 {name=gnd dir=inout}
+T {Ideal
+OP Amp} 62.5 -38.5 0 0 0.15 0.15 {}
+T {@name} 35 -72 0 0 0.2 0.2 {}
+T {out} 155 -44 0 1 0.2 0.2 {}
+T {+} 60 -56.5 0 0 0.2 0.2 {}
+T {-} 62.5 -16.5 0 0 0.2 0.2 {}
+T {gnd} 105 -4 0 1 0.2 0.2 {}
