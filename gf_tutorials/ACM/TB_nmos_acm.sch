@@ -11,7 +11,7 @@ B 2 -60 -360 450 40 {flags=graph
 ypos1=0
 ypos2=2
 divy=5
-subdivy=8
+subdivy=4
 unity=1
 
 
@@ -24,7 +24,7 @@ ylabmag=1.0
 dataset=-1
 unitx=1
 logx=0
-logy=1
+logy=0
 
 
 
@@ -37,10 +37,10 @@ logy=1
 
 
 
-y1=-11
-y2=-2.5
+y1=1.3e-11
+y2=0.0026
 x2=3.3
-x1=0.05
+x1=0.1
 color="4 5"
 node="\\"ID_ACM;i(vs)\\"
 \\"ID_GF;i(vs2)\\""
@@ -90,7 +90,7 @@ linewidth_mult=3.0
 subdivx=3
 
 color="4 5"
-x1=0.05
+x1=0.1
 x2=3.3
 node="\\"gm/ID - ACM;i(gm_id)\\"
 \\"gm/ID - GF180;i(gm_id_gf)\\""
@@ -99,6 +99,46 @@ node="\\"gm/ID - ACM;i(gm_id)\\"
 
 y1=0.55
 y2=29}
+B 2 450 -360 960 40 {flags=graph
+
+
+ypos1=0
+ypos2=2
+divy=5
+subdivy=8
+unity=1
+
+
+divx=6
+subdivx=3
+xlabmag=1.0
+ylabmag=1.0
+
+
+dataset=-1
+unitx=1
+logx=0
+logy=1
+
+
+
+
+
+
+
+
+
+
+
+
+y1=-11
+y2=-2.5
+x2=3.3
+x1=0.1
+color="4 5"
+node="\\"ID_ACM;i(vs)\\"
+\\"ID_GF;i(vs2)\\""
+linewidth_mult=3.0}
 N -210 -170 -210 -160 {
 lab=GND}
 N -200 -290 -200 -280 {
