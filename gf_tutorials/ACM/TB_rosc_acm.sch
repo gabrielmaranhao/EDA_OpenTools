@@ -53,8 +53,8 @@ x1=0
 color=4
 node="\\"Vout;vout\\""
 linewidth_mult=3.0
-y2=3.3
-y1=-0.00015
+y2=1.8
+y1=-0.00032
 x2=2e-08}
 N 260 -180 260 -110 {
 lab=vdd}
@@ -166,7 +166,7 @@ N 40 -210 40 -0 {
 lab=vout}
 N 1240 -210 1240 0 {
 lab=vout}
-C {devices/vsource.sym} 60 110 0 0 {name=VDD value=3.3}
+C {devices/vsource.sym} 60 110 0 0 {name=VDD value=1.8}
 C {devices/gnd.sym} 60 140 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 260 150 0 0 {name=l4 lab=GND}
 C {devices/lab_wire.sym} 60 40 0 1 {name=p3 sig_type=std_logic lab=vdd
