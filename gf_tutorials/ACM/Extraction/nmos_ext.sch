@@ -56,7 +56,7 @@ node=i(gm_id)
 
 
 
-y1=0.17
+y1=0.12
 y2=29}
 B 2 70 -50 580 350 {flags=graph
 
@@ -90,8 +90,8 @@ color=4
 
 node=i(vs)
 
-y1=-14
-y2=-5.3
+y1=-13
+y2=-4.4
 x2=3.3
 x1=0.05}
 N -420 20 -340 20 {
@@ -132,8 +132,8 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice typical
 "}
 C {symbols/nfet_03v3.sym} -320 20 0 0 {name=M1
-L=0.5u
-W=10u
+L=0.3u
+W=5u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"

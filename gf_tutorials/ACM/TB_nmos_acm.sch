@@ -43,7 +43,7 @@ x2=3.3
 x1=0.1
 color="4 5"
 node="\\"ID_ACM;i(vs)\\"
-\\"ID_GF;i(vs2)\\""
+\\"ID_BSIM;i(vs2)\\""
 linewidth_mult=3.0}
 B 2 -60 -750 450 -360 {flags=graph
 
@@ -93,7 +93,7 @@ color="4 5"
 x1=0.1
 x2=3.3
 node="\\"gm/ID - ACM;i(gm_id)\\"
-\\"gm/ID - GF180;i(gm_id_gf)\\""
+\\"gm/ID - BSIM;i(gm_id_gf)\\""
 
 
 
@@ -132,12 +132,12 @@ logy=1
 
 
 y1=-11
-y2=-2.5
+y2=-2.3
 x2=3.3
 x1=0.1
 color="4 5"
 node="\\"ID_ACM;i(vs)\\"
-\\"ID_GF;i(vs2)\\""
+\\"ID_BSIM;i(vs2)\\""
 linewidth_mult=3.0}
 N -210 -170 -210 -160 {
 lab=GND}
@@ -230,8 +230,8 @@ l=0.30u
 n=1.383 
 is=1.076u 
 vt0=0.6493
-sigma=26m 
-zeta=22m
+sigma=26.3m 
+zeta=6.8m
 }
 C {symbols/nfet_03v3.sym} -630 -240 0 0 {name=M1
 L=0.30u

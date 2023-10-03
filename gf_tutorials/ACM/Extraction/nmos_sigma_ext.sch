@@ -56,8 +56,8 @@ x2=3.4893
 
 
 
-y1=0.0011
-y2=0.0024
+y1=0.0053
+y2=0.013
 color=4
 node=sigma}
 N -360 340 -360 430 {
@@ -115,7 +115,7 @@ value="
 .control
 save all
 
-dc Vd 0.2 3.5 25.9m
+dc Vd_bias  0.2 3.5 25.9m
 
 let vd_interp = 3.3/3
 let sigma = -deriv(V(vg))/deriv(V(vd))
@@ -140,8 +140,8 @@ write nmos_sigma_ext.raw
 " }
 C {/home/gmaranhao/Desktop/gf180_work/auxLib/ampOp_ideal.sym} -180 260 3 1 {name=x1}
 C {symbols/nfet_03v3.sym} -340 460 0 1 {name=M2
-L=0.5u
-W=10u
+L=0.3u
+W=5u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -154,7 +154,7 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {devices/isource.sym} -360 260 0 0 {name=I0 value=10n}
-C {devices/vsource.sym} -90 430 0 0 {name=Vd value=}
+C {devices/vsource.sym} -90 430 0 0 {name=Vd_bias value=}
 C {devices/gnd.sym} -220 510 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} -150 340 0 0 {name=l2 lab=GND}
 C {devices/vsource.sym} -410 260 0 1 {name=Vdd value=3.3}

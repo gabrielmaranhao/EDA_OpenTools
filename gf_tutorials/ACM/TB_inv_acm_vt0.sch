@@ -51,7 +51,7 @@ color="4 6 5"
 node="\\"Vin;vin\\"
 \\"Vout_ACM;vout\\"
 \\"Vout_BSIM;vout2\\""
-linewidth_mult=2.5
+linewidth_mult=3
 y2=3.3
 y1=0
 x2=3.3}
@@ -223,23 +223,23 @@ tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
 C {/home/gmaranhao/Desktop/gf180_work/ACM/nmos_acm.sym} 260 10 0 0 {name=N2 
 model=NMOS_ACM 
-w=10u 
-l=0.5u 
+w=5u 
+l=0.3u 
 n=1.37 
-is=1.33u 
-vt0=0.692
-sigma=6.1m 
-zeta=0.1m
+is=1.06u 
+vt0=0.648.2
+sigma=26.3m 
+zeta=6.7m
 }
 C {/home/gmaranhao/Desktop/gf180_work/ACM/pmos_acm.sym} 260 -80 0 0 {name=N1 
 model=PMOS_ACM 
-w=10u 
-l=0.5u 
+w=5u 
+l=0.3u 
 n=1.42 
-is=0.41u 
-vt0=0.791
-sigma=6.1m 
-zeta=0.1m
+is=0.35u 
+vt0=0.7523
+sigma=19.2m 
+zeta=7m
 }
 C {devices/lab_wire.sym} 460 -30 0 0 {name=p2 sig_type=std_logic lab=vout
 }
@@ -258,8 +258,8 @@ C {devices/lab_wire.sym} 970 -30 0 0 {name=p6 sig_type=std_logic lab=vout2
 C {devices/lab_wire.sym} 600 -30 0 0 {name=p8 sig_type=std_logic lab=vin
 }
 C {symbols/nfet_03v3.sym} 760 10 0 0 {name=M1
-L=0.5u
-W=10u
+L=0.3u
+W=5u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -272,8 +272,8 @@ model=nfet_03v3
 spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 760 -80 0 0 {name=M2
-L=0.5u
-W=10u
+L=0.3u
+W=5u
 nf=1
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"

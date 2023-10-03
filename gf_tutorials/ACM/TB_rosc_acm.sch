@@ -274,7 +274,7 @@ C {devices/code.sym} 0 370 0 0 {name=NGSPICE only_toplevel=true
 
 value="
 
-.param zeta_var = 0.1m
+.param zeta_var = 0.1
 
 .ic V(vout)=1.65
 .control
