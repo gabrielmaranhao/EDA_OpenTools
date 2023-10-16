@@ -4,7 +4,7 @@
 
 # Download and Install
 
-Open the google drive link proveded above, download and install the VM-Ware Software.
+Open the google drive link provided above, download and install the VM-Ware Software.
 
  - Download "Ubuntu 64-bit.rar" and unzip it. 
  - Open VMware -> "Open a Virtual Machine" -> Select the unzip Ubuntu.
