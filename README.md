@@ -1,8 +1,8 @@
-## Open Source EDA Tools for LCI-UFSC
+# Open Source EDA Tools for LCI-UFSC
 
 [LCI-UFSC OpenSource Virtual Machine](https://drive.google.com/drive/folders/1gIJjDK1yTs8wtIxc7f2z7mOENcpjpTFQ)
 
-# Download and Install
+## Download and Install
 
 Open the google drive link provided above, download and install the VM-Ware Software.
 
@@ -12,5 +12,4 @@ Open the google drive link provided above, download and install the VM-Ware Soft
  - Save Exit
  - Play
 
-### What is Schematic Capture and why do we need it?
 
