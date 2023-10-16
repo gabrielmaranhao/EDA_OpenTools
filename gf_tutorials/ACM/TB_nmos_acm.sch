@@ -1,11 +1,11 @@
-v {xschem version=3.4.4 file_version=1.2
+v {xschem version=3.4.3 file_version=1.2
 }
 G {}
 K {}
 V {}
 S {}
 E {}
-B 2 -60 -360 450 40 {flags=graph
+B 2 -150 -800 360 -400 {flags=graph
 
 
 ypos1=0
@@ -44,8 +44,9 @@ x1=0.1
 color="4 5"
 node="\\"ID_ACM;i(vs)\\"
 \\"ID_BSIM;i(vs2)\\""
-linewidth_mult=3.0}
-B 2 -60 -750 450 -360 {flags=graph
+linewidth_mult=3.0
+sweep=vg}
+B 2 -660 -800 -150 -410 {flags=graph
 
 
 ypos1=0
@@ -98,8 +99,9 @@ node="\\"gm/ID - ACM;i(gm_id)\\"
 
 
 y1=0.55
-y2=29}
-B 2 450 -360 960 40 {flags=graph
+y2=29
+sweep=vg}
+B 2 -150 -400 360 0 {flags=graph
 
 
 ypos1=0
@@ -138,7 +140,8 @@ x1=0.1
 color="4 5"
 node="\\"ID_ACM;i(vs)\\"
 \\"ID_BSIM;i(vs2)\\""
-linewidth_mult=3.0}
+linewidth_mult=3.0
+sweep=vg}
 N -210 -170 -210 -160 {
 lab=GND}
 N -200 -290 -200 -280 {
@@ -183,31 +186,12 @@ N -700 -240 -650 -240 {
 lab=vg}
 N -400 -230 -340 -230 {
 lab=vg}
-C {devices/code_shown.sym} -750 -830 0 0 {name=MODELS only_toplevel=true
+C {devices/code_shown.sym} -790 -990 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
 .include $::180MCU_MODELS/design.ngspice
 .lib $::180MCU_MODELS/sm141064.ngspice typical
 .model NMOS_ACM nmos_ACM
-"}
-C {devices/code_shown.sym} -740 -710 0 0 {name=NGSPICE only_toplevel=true
-value="
-.control
-pre_osdi /home/gmaranhao/Desktop/gf180_work/ACM/NMOS_ACM_2V0.osdi
-save all
-
-dc VG 0.1 3.3 5m
-
-*gm for ACM
-let gm_id = deriv(ln(i(Vs)))
-
-*gm for GF180
-let gm_id_gf = deriv(ln(i(Vs2)))
-
-save gm_id gm_id_gf
-write TB_nmos_acm.raw
-
-.endc
 "}
 C {devices/vsource.sym} -400 -200 0 0 {name=VG value=0}
 C {devices/vsource.sym} -200 -320 0 0 {name=VD value=3.3}
@@ -222,16 +206,6 @@ C {devices/lab_wire.sym} -260 -350 0 0 {name=p2 sig_type=std_logic lab=vd}
 C {devices/lab_wire.sym} -330 -190 0 0 {name=p3 sig_type=std_logic lab=vs
 }
 C {devices/lab_wire.sym} -230 -250 0 0 {name=p4 sig_type=std_logic lab=vb
-}
-C {/home/gmaranhao/Desktop/gf180_work/ACM/nmos_acm.sym} -310 -230 0 0 {name=N1 
-model=NMOS_ACM 
-w=5u 
-l=0.30u 
-n=1.383 
-is=1.076u 
-vt0=0.6493
-sigma=26.3m 
-zeta=6.8m
 }
 C {symbols/nfet_03v3.sym} -630 -240 0 0 {name=M1
 L=0.30u
@@ -260,9 +234,38 @@ C {devices/lab_wire.sym} -640 -200 0 0 {name=p7 sig_type=std_logic lab=vs2
 }
 C {devices/lab_wire.sym} -540 -260 0 0 {name=p8 sig_type=std_logic lab=vb2
 }
-C {devices/launcher.sym} -5 -775 0 0 {name=h4 
+C {devices/launcher.sym} -595 -825 0 0 {name=h4 
 descr="Ctrl-Left-Click to load/unload" 
 tclcommand="
 xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]]].raw dc
 "
 }
+C {/home/lci-ufsc/Desktop/work_gf180/ACM/nmos_acm.sym} -310 -230 0 0 {name=N1 
+model=NMOS_ACM 
+w=5u 
+l=0.3u 
+n=1.37 
+is=1.06u 
+vt0=0.64932
+sigma=26.3m 
+zeta=6.8m
+}
+C {devices/code.sym} -820 -780 0 0 {name=NGSPICE1 only_toplevel=true
+value="
+.control
+pre_osdi /home/lci-ufsc/Desktop/work_gf180/ACM/NMOS_ACM_2V0.osdi
+save all
+
+dc VG 0.1 3.3 5m
+
+*gm for ACM
+let gm_id = deriv(ln(i(Vs)))
+
+*gm for GF180
+let gm_id_gf = deriv(ln(i(Vs2)))
+
+save gm_id gm_id_gf
+write TB_nmos_acm.raw
+
+.endc
+"}

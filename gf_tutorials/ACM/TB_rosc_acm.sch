@@ -1,4 +1,4 @@
-v {xschem version=3.4.4 file_version=1.2
+v {xschem version=3.4.3 file_version=1.2
 }
 G {}
 K {}
@@ -30,7 +30,7 @@ xlabmag=1.5
 ylabmag=1.5
 
 
-dataset=-1
+
 unitx=1
 logx=0
 logy=0
@@ -52,10 +52,14 @@ logy=0
 x1=0
 color=4
 node="\\"Vout;vout\\""
-linewidth_mult=3.0
-y2=1.8
-y1=-0.00032
-x2=2e-08}
+linewidth_mult=4.0
+y2=3.3
+y1=-0.0013
+x2=6e-08
+rainbow=1
+dataset=-1}
+T {Zeta = 0.1m} 260 470 0 0 0.6 0.6 { layer=5}
+T {Zeta = 100m} 260 530 0 0 0.6 0.6 { layer=4}
 N 260 -180 260 -110 {
 lab=vdd}
 N 260 -20 260 10 {
@@ -166,31 +170,11 @@ N 40 -210 40 -0 {
 lab=vout}
 N 1240 -210 1240 0 {
 lab=vout}
-C {devices/vsource.sym} 60 110 0 0 {name=VDD value=1.8}
+C {devices/vsource.sym} 60 110 0 0 {name=VDD value=3.3}
 C {devices/gnd.sym} 60 140 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 260 150 0 0 {name=l4 lab=GND}
 C {devices/lab_wire.sym} 60 40 0 1 {name=p3 sig_type=std_logic lab=vdd
 
-}
-C {/home/gmaranhao/Desktop/gf180_work/ACM/nmos_acm.sym} 250 40 0 0 {name=N2 
-model=NMOS_ACM 
-w=5u 
-l=0.18u 
-n=1.37 
-is=5.52u 
-vt0=0.558
-sigma=27m 
-zeta=\{zeta_var\}
-}
-C {/home/gmaranhao/Desktop/gf180_work/ACM/pmos_acm.sym} 250 -50 0 0 {name=N1 
-model=PMOS_ACM 
-w=5u 
-l=0.18u 
-n=1.40 
-is=1.82u 
-vt0=0.525
-sigma=24m 
-zeta=\{zeta_var\}
 }
 C {devices/lab_wire.sym} 290 -180 0 0 {name=p1 sig_type=std_logic lab=vdd
 
@@ -201,26 +185,6 @@ value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 660 150 0 0 {name=l1 lab=GND}
-C {/home/gmaranhao/Desktop/gf180_work/ACM/nmos_acm.sym} 650 40 0 0 {name=N3 
-model=NMOS_ACM 
-w=5u 
-l=0.18u 
-n=1.37 
-is=5.52u 
-vt0=0.558
-sigma=27m 
-zeta=\{zeta_var\}
-}
-C {/home/gmaranhao/Desktop/gf180_work/ACM/pmos_acm.sym} 650 -50 0 0 {name=N4 
-model=PMOS_ACM 
-w=5u 
-l=0.18u 
-n=1.40 
-is=1.82u 
-vt0=0.525
-sigma=24m 
-zeta=\{zeta_var\}
-}
 C {devices/lab_wire.sym} 690 -180 0 0 {name=p2 sig_type=std_logic lab=vdd
 
 }
@@ -230,33 +194,13 @@ value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 1060 150 0 0 {name=l3 lab=GND}
-C {/home/gmaranhao/Desktop/gf180_work/ACM/nmos_acm.sym} 1050 40 0 0 {name=N5 
-model=NMOS_ACM 
-w=5u 
-l=0.18u 
-n=1.37 
-is=5.52u 
-vt0=0.558
-sigma=27m 
-zeta=\{zeta_var\}
-}
-C {/home/gmaranhao/Desktop/gf180_work/ACM/pmos_acm.sym} 1050 -50 0 0 {name=N6 
-model=PMOS_ACM 
-w=5u 
-l=0.18u 
-n=1.40 
-is=1.82u 
-vt0=0.525
-sigma=24m 
-zeta=\{zeta_var\}
-}
 C {devices/lab_wire.sym} 1090 -180 0 0 {name=p4 sig_type=std_logic lab=vdd
 
 }
 C {devices/lab_wire.sym} 100 -210 0 1 {name=p5 sig_type=std_logic lab=vout
 
 }
-C {devices/code_shown.sym} 10 240 0 0 {name=MODELS only_toplevel=true
+C {devices/code_shown.sym} 50 -430 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
 .include $::180MCU_MODELS/design.ngspice
@@ -270,23 +214,33 @@ tclcommand="
 xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]]].raw
 "
 }
-C {devices/code.sym} 0 370 0 0 {name=NGSPICE only_toplevel=true
+C {devices/code.sym} 160 280 0 0 {name=NGSPICE only_toplevel=true
 
 value="
 
-.param zeta_var = 0.1
+.param zeta_var = 0.1m
+.tran 1p 60n
 
 .ic V(vout)=1.65
 .control
-pre_osdi /home/gmaranhao/Desktop/gf180_work/ACM/NMOS_ACM_2V0.osdi
-pre_osdi /home/gmaranhao/Desktop/gf180_work/ACM/PMOS_ACM_2V0.osdi
+pre_osdi /home/lci-ufsc/Desktop/work_gf180/ACM/NMOS_ACM_2V0.osdi
+pre_osdi /home/lci-ufsc/Desktop/work_gf180/ACM/PMOS_ACM_2V0.osdi
 save all
 
-tran 0.1p 20n
+run
+remzerovec 
+write TB_rosc_acm.raw
+set appendwrite
+
+
+alterparam zeta_var = 0.1
+reset
+run
 remzerovec 
 write TB_rosc_acm.raw
 
 .endc
+.save all
 "}
 C {devices/gnd.sym} 480 70 0 0 {name=l5 lab=GND}
 C {devices/gnd.sym} 880 70 0 0 {name=l6 lab=GND}
@@ -296,3 +250,63 @@ value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 1240 70 0 0 {name=l7 lab=GND}
+C {/home/lci-ufsc/Desktop/work_gf180/ACM/nmos_acm.sym} 250 40 0 0 {name=N1 
+model=NMOS_ACM 
+w=5u 
+l=0.30u 
+n=1.383 
+is=1.076u 
+vt0=0.6493
+sigma=26.3m 
+zeta=\{zeta_var\}
+}
+C {/home/lci-ufsc/Desktop/work_gf180/ACM/pmos_acm.sym} 250 -50 0 0 {name=N2 
+model=PMOS_ACM 
+w=5u 
+l=0.3u 
+n=1.42 
+is=0.35u 
+vt0=0.7523
+sigma=19.2m 
+zeta=\{zeta_var\}
+}
+C {/home/lci-ufsc/Desktop/work_gf180/ACM/nmos_acm.sym} 650 40 0 0 {name=N3 
+model=NMOS_ACM 
+w=5u 
+l=0.30u 
+n=1.383 
+is=1.076u 
+vt0=0.6493
+sigma=26.3m 
+zeta=\{zeta_var\}
+}
+C {/home/lci-ufsc/Desktop/work_gf180/ACM/pmos_acm.sym} 650 -50 0 0 {name=N4 
+model=PMOS_ACM 
+w=5u 
+l=0.3u 
+n=1.42 
+is=0.35u 
+vt0=0.7523
+sigma=19.2m 
+zeta=\{zeta_var\}
+}
+C {/home/lci-ufsc/Desktop/work_gf180/ACM/nmos_acm.sym} 1050 40 0 0 {name=N5 
+model=NMOS_ACM 
+w=5u 
+l=0.30u 
+n=1.383 
+is=1.076u 
+vt0=0.6493
+sigma=26.3m 
+zeta=\{zeta_var\}
+}
+C {/home/lci-ufsc/Desktop/work_gf180/ACM/pmos_acm.sym} 1050 -50 0 0 {name=N6 
+model=PMOS_ACM 
+w=5u 
+l=0.3u 
+n=1.42 
+is=0.35u 
+vt0=0.7523
+sigma=19.2m 
+zeta=\{zeta_var\}
+}
