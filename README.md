@@ -9,7 +9,8 @@ Open the google drive link provided above, download and install the VM-Ware Soft
  - Download "Ubuntu 64-bit.rar" and unzip it. 
  - Open VMware -> "Open a Virtual Machine" -> Select the unzip Ubuntu.
  - Right Click on the newest VM created -> Settings -> Select Memory (lass then half total RAM) -> Select Processors
- - Save Exit 
+ - Save Exit
+ - Play
 
 ### What is Schematic Capture and why do we need it?
 
