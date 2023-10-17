@@ -1,7 +1,7 @@
 ##### Open-Source PDK on ngspice+xschem+gaw+klayout+magic on Ubuntu 22
 
-##### By: Gabriel Maranhao - LCI-UFSC (last edit: 04/09/2023)
-##### TO-DO: (Sky-Magic, Sky-Klayout)
+##### By: Gabriel Maranhao - LCI-UFSC (last edit: 17/20/2023)
+##### TO-DO: Improve SKY for Klayout
 
 -> xscheme - A schematic capture tool
 -> ngspice - A circuit simulator
@@ -10,6 +10,7 @@
 -> Magic - Layout editor/viewer/pex
 -> GlobalFoundries 180nm Open-Source PDK
 -> SkyWater 130nm Open-Source PDK
+-> netgen - LVS tool for Sky130nm
 
 #Important pakages
 ---------------------------
@@ -99,7 +100,7 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 		- unzip and overwrite everything from /gf180mcuC/libs.tech/klayout
 	     $ klayout -e
 	     
-5.1) DRC+LVS (Klayout)
+5.1) DRC+LVS GF180nm (Klayout)
 	     $ git clone https://github.com/efabless/globalfoundries-pdk-libs-gf180mcu_fd_pv.git
 	     $ cd globalfoundries-pdk-libs-gf180mcu_fd_pv
 	     $ pip install -r requirements.txt
@@ -131,14 +132,14 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 	     .
 	     .s
 	  
-6.1) PEX (Magic)
+6.1) PEX (Magic, Sky103 of GF180)
 	     - Run [run.sh] script with top cell name as argument, for example (inverter.gds):
 	     $ ./run_ex.sh inverter
 	     - The result file is the one that end with [.spice], for example inverter.spice
 	     	
 	     	
 	     	
-7) Sky Water
+7) Sky Water (Need to Install volare on item 4)
 	 $ sudo gedit ~/.bashrc
 	   - Add follow lines:
 		export PDK_ROOT=/home/$USER/pdk
