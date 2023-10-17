@@ -161,7 +161,7 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 	$ sudo make install
 	   - Create netlist (.spice) from layout using script "create_lvs_netlist.sh" 
 	   - To run LVS:
-	$ netgen -batch lvs "circuit_sch.spice subcircuit" "circuit_layout.spice" $PDK_ROOT/$PDK/libs.tech/netgen/setup.tcl
+	$ netgen -batch lvs "circuit_sch.spice subcircuit" "circuit_layout.spice" $PDK_ROOT/$PDK/libs.tech/netgen/sky130A_setup.tcl
 
 EXTRAS:
 #Important line for "GAW" configuration (OPTIONAL)
