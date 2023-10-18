@@ -132,8 +132,8 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 	     .
 	     .s
 	  
-6.1) PEX (Magic, Sky103 of GF180)
-	     - Run [run.sh] script with top cell name as argument, for example (inverter.gds):
+6.1) PEX (Magic, Sky103 or GF180)
+	     - Run "Tools/run_ex.sh" script with top cell name as argument, for example (inverter.gds):
 	     $ ./run_ex.sh inverter
 	     - The result file is the one that end with [.spice], for example inverter.spice
 	     	
@@ -162,7 +162,7 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 	$ sudo make install
 	Preparing LVS:
            - Take netlist (.spice) from schematic (xschem) on "Simmulation"->"LVS netlist:Top level is a .subckt" -> hit 'N' to save .spice file on home/.xschem/simulations
-	   - Create netlist (.spice) from layout using script "create_lvs_netlist.sh" 
+	   - Create netlist (.spice) from layout using script "Tools/create_lvs_netlist.sh" 
 	   - To run LVS:
 	$ netgen -batch lvs "circuit_sch.spice subcircuit" "circuit_layout.spice subcircuit" $PDK_ROOT/$PDK/libs.tech/netgen/sky130A_setup.tcl
 
