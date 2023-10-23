@@ -157,6 +157,7 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 
 7.1) netgen (LVS SkyWater)
 	$ git clone https://github.com/RTimothyEdwards/netgen
+	$ cd netgen
 	$ ./configure
 	$ make
 	$ sudo make install
