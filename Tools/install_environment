@@ -161,10 +161,13 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 	$ ./configure
 	$ make
 	$ sudo make install
-	Preparing LVS:
+	Preparing LVS (go to work directory):
            - Take netlist (.spice) from schematic (xschem) on "Simmulation"->"LVS netlist:Top level is a .subckt" -> hit 'N' to save .spice file on home/.xschem/simulations
-	   - Create netlist (.spice) from layout using script "Tools/create_lvs_netlist.sh" 
-	   - To run LVS:
+        $ chmod +x create_lvs_netlist.sh
+	   - Create netlist (.spice) from layout using script "Tools/create_lvs_netlist.sh", run it passing your top_cell_name (without .gds)
+	$ ./create_lvs_netlist.sh TOP_CELL_NAME
+	   - To run LVS (both .spice on same directory):
+	   - If both .spice files have same name rename them to have different names ("..._sch" and "..._lay")
 	$ netgen -batch lvs "circuit_sch.spice subcircuit" "circuit_layout.spice subcircuit" $PDK_ROOT/$PDK/libs.tech/netgen/sky130A_setup.tcl
 
 EXTRAS:
