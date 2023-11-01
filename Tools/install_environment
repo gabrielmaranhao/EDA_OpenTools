@@ -161,7 +161,8 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 	$ ./configure
 	$ make
 	$ sudo make install
-	Preparing LVS (go to work directory):
+	
+	*** Preparing LVS (go to work directory):
            - Take netlist (.spice) from schematic (xschem) on "Simmulation"->"LVS netlist:Top level is a .subckt" -> hit 'N' to save .spice file on home/.xschem/simulations
         $ chmod +x create_lvs_netlist.sh
 	   - Create netlist (.spice) from layout using script "Tools/create_lvs_netlist.sh", run it passing your top_cell_name (without .gds)

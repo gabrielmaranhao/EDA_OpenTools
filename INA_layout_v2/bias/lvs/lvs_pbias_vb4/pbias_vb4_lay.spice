@@ -1,0 +1,40 @@
+* NGSPICE file created from pbias_vb4.ext - technology: sky130A
+
+.subckt pbias_vb4 VB4 AVDD
+X0 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0 ps=0 w=1 l=1
+X1 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X2 a_1669_n1002# VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.29 ps=2.58 w=1 l=1
+X3 VB4 VB4 a_1927_n235# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0.145 ps=1.29 w=1 l=1
+X4 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0 ps=0 w=1 l=1
+X5 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0 ps=0 w=1 l=1
+X6 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X7 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X8 a_1927_n699# VB4 a_1669_n699# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.145 ps=1.29 w=1 l=1
+X9 a_1669_n699# VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.29 ps=2.58 w=1 l=1
+X10 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X11 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X12 VB4 VB4 a_1927_n1002# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0.145 ps=1.29 w=1 l=1
+X13 a_1927_n1002# VB4 a_1669_n1002# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.145 ps=1.29 w=1 l=1
+X14 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X15 a_1669_n1466# VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.29 ps=2.58 w=1 l=1
+X16 VB4 VB4 a_1927_n699# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0.145 ps=1.29 w=1 l=1
+X17 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X18 a_1669_n1769# VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.29 ps=2.58 w=1 l=1
+X19 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X20 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X21 VB4 VB4 a_1927_n1466# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0.145 ps=1.29 w=1 l=1
+X22 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X23 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X24 a_1927_n1466# VB4 a_1669_n1466# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.145 ps=1.29 w=1 l=1
+X25 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X26 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0 ps=0 w=1 l=1
+X27 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X28 VB4 VB4 a_1927_n1769# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0.145 ps=1.29 w=1 l=1
+X29 a_1927_n1769# VB4 a_1669_n1769# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.145 ps=1.29 w=1 l=1
+X30 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X31 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X32 AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.29 pd=2.58 as=0 ps=0 w=1 l=1
+X33 a_1927_n235# VB4 a_1669_n235# AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.145 ps=1.29 w=1 l=1
+X34 a_1669_n235# VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt ad=0.145 pd=1.29 as=0.29 ps=2.58 w=1 l=1
+.ends
+

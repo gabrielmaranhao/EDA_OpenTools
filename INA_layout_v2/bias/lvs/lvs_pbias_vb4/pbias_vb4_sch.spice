@@ -1,0 +1,40 @@
+** sch_path: /home/lci-ufsc/Desktop/work_sky130/INA_layout_v2/bias/pbias_vb4.sch
+.subckt pbias_vb4 VB4 AVDD
+*.PININFO VB4:B AVDD:B
+XM1 net1 VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM2 net2 VB4 net1 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM3 VB4 VB4 net2 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM4 net3 VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM5 net4 VB4 net3 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM6 VB4 VB4 net4 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM7 net5 VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM8 net6 VB4 net5 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM9 VB4 VB4 net6 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM10 net7 VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM11 net8 VB4 net7 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM12 VB4 VB4 net8 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM13 net9 VB4 AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM14 net10 VB4 net9 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM15 VB4 VB4 net10 AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[20] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[19] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[18] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[17] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[16] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[15] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[14] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[13] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[12] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[11] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[10] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[9] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[8] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[7] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[6] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[5] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[4] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[3] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[2] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+XM16[1] AVDD AVDD AVDD AVDD sky130_fd_pr__pfet_01v8_hvt L=1 W=1 nf=1 m=1
+.ends
+.end

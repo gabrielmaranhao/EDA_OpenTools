@@ -1,0 +1,40 @@
+
+Circuit 1 cell sky130_fd_pr__pfet_01v8_hvt and Circuit 2 cell sky130_fd_pr__pfet_01v8_hvt are black boxes.
+Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8_hvt is a placeholder, treated as a black box.
+Warning: Equate pins:  cell sky130_fd_pr__pfet_01v8_hvt is a placeholder, treated as a black box.
+
+Subcircuit pins:
+Circuit 1: sky130_fd_pr__pfet_01v8_hvt     |Circuit 2: sky130_fd_pr__pfet_01v8_hvt     
+-------------------------------------------|-------------------------------------------
+1                                          |1                                          
+2                                          |2                                          
+3                                          |3                                          
+4                                          |4                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes sky130_fd_pr__pfet_01v8_hvt and sky130_fd_pr__pfet_01v8_hvt are equivalent.
+
+Class pbias_vb4 (0):  Merged 19 parallel devices.
+Class pbias_vb4 (1):  Merged 19 parallel devices.
+Subcircuit summary:
+Circuit 1: pbias_vb4                       |Circuit 2: pbias_vb4                       
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__pfet_01v8_hvt (35->16)       |sky130_fd_pr__pfet_01v8_hvt (35->16)       
+Number of devices: 16                      |Number of devices: 16                      
+Number of nets: 12                         |Number of nets: 12                         
+---------------------------------------------------------------------------------------
+Resolving symmetries by property value.
+Resolving symmetries by pin name.
+Netlists match with 5 symmetries.
+
+Subcircuit pins:
+Circuit 1: pbias_vb4                       |Circuit 2: pbias_vb4                       
+-------------------------------------------|-------------------------------------------
+AVDD                                       |AVDD                                       
+VB4                                        |VB4                                        
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes pbias_vb4 and pbias_vb4 are equivalent.
+
+Final result: Circuits match uniquely.
+.

@@ -1,0 +1,36 @@
+** sch_path: /home/lci-ufsc/Desktop/work_sky130/INA_layout_v2/bias/nbias_vb124.sch
+.subckt nbias_vb124 IREF VB1 VB2 VB4 AVSS
+*.PININFO IREF:B VB1:B VB2:B VB4:B AVSS:B
+x1[5] AVSS AVSS IREF IREF nfet_2series
+x1[4] AVSS AVSS IREF IREF nfet_2series
+x1[3] AVSS AVSS IREF IREF nfet_2series
+x1[2] AVSS AVSS IREF IREF nfet_2series
+x1[1] AVSS AVSS IREF IREF nfet_2series
+x2[5] AVSS AVSS IREF VB1 nfet_2series
+x2[4] AVSS AVSS IREF VB1 nfet_2series
+x2[3] AVSS AVSS IREF VB1 nfet_2series
+x2[2] AVSS AVSS IREF VB1 nfet_2series
+x2[1] AVSS AVSS IREF VB1 nfet_2series
+x3[5] AVSS AVSS VB2 VB2 nfet_2series
+x3[4] AVSS AVSS VB2 VB2 nfet_2series
+x3[3] AVSS AVSS VB2 VB2 nfet_2series
+x3[2] AVSS AVSS VB2 VB2 nfet_2series
+x3[1] AVSS AVSS VB2 VB2 nfet_2series
+x4[5] AVSS AVSS VB2 VB4 nfet_2series
+x4[4] AVSS AVSS VB2 VB4 nfet_2series
+x4[3] AVSS AVSS VB2 VB4 nfet_2series
+x4[2] AVSS AVSS VB2 VB4 nfet_2series
+x4[1] AVSS AVSS VB2 VB4 nfet_2series
+XM1 AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=44
+.ends
+
+* expanding   symbol:  INA_layout_v2/bias/nfet_2series.sym # of pins=4
+** sym_path: /home/lci-ufsc/Desktop/work_sky130/INA_layout_v2/bias/nfet_2series.sym
+** sch_path: /home/lci-ufsc/Desktop/work_sky130/INA_layout_v2/bias/nfet_2series.sch
+.subckt nfet_2series S B G D
+*.PININFO S:B B:B G:B D:B
+XM1 D G net1 B sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM2 net1 G S B sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+.ends
+
+.end

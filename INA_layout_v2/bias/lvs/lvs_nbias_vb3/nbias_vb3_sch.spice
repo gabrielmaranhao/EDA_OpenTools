@@ -1,0 +1,31 @@
+** sch_path: /home/lci-ufsc/Desktop/work_sky130/INA_layout_v2/bias/nbias_vb3.sch
+.subckt nbias_vb3 AVSS VB3
+*.PININFO AVSS:B VB3:B
+x1 AVSS AVSS VB3 net1 nfet_2series
+x2 net1 AVSS VB3 VB3 nfet_2series
+XM1[14] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[13] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[12] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[11] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[10] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[9] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[8] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[7] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[6] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[5] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[4] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[3] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[2] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM1[1] AVSS AVSS AVSS AVSS sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+.ends
+
+* expanding   symbol:  INA_layout_v2/bias/nfet_2series.sym # of pins=4
+** sym_path: /home/lci-ufsc/Desktop/work_sky130/INA_layout_v2/bias/nfet_2series.sym
+** sch_path: /home/lci-ufsc/Desktop/work_sky130/INA_layout_v2/bias/nfet_2series.sch
+.subckt nfet_2series S B G D
+*.PININFO S:B B:B G:B D:B
+XM1 D G net1 B sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+XM2 net1 G S B sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+.ends
+
+.end
