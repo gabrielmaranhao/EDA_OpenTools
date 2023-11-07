@@ -80,7 +80,7 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 	      $ gedit $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
 	      	- Go to line 33, substitute it by:
 	      	  append XSCHEM_LIBRARY_PATH :$env(PDK_ROOT)/$env(PDK)/libs.tech/xschem
-	      	- Go to line 328, substitute it by:
+	      	- Go to line 329, substitute it by:
 		  set 180MCU_MODELS $env(PDK_ROOT)/$env(PDK)/libs.tech/ngspice
 	      $ cp -r $PDK_ROOT/$PDK/libs.tech/xschem/tests $PDK_ROOT/$PDK/libs.tech/xschem/gf180mcu_tests
 	      $ cp -r $PDK_ROOT/$PDK/libs.tech/xschem/symbols $PDK_ROOT/$PDK/libs.tech/xschem/gf180mcu_tests/gf180mcu_fd_pr
