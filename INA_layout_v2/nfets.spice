@@ -1,8 +1,0 @@
-** sch_path: /home/lci-ufsc/Desktop/work_sky130/INA_layout_v2/nfets.sch
-.subckt nfets VS1 VS2 VB VG1 VG2 VD1 VD2
-*.PININFO VS1:B VS2:B VB:B VG1:B VG2:B VD1:B VD2:B
-XM1 VD1 VG1 VS1 VB sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=7
-XM2 VD2 VG2 VS2 VB sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=7
-XM3 VB VB VB VB sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=4
-.ends
-.end
