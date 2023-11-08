@@ -22,7 +22,7 @@ ext2sim -p extfiles
 extresist tolerance 10
 extresist
 ext2spice lvs
-ext2spice cthresh 0
+ext2spice cthresh 0.01
 ext2spice extresist on
 ext2spice -p extfiles
 quit

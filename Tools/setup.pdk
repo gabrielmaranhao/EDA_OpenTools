@@ -11,8 +11,11 @@
 #                                                                              #
 # Criado por: Gabriel Maranhao					               #
 #                                                                              #
-# Versao 1 - Suporte a SKY130 GF180mcu                                         #
-#                  							       #
+# Versao 1 - Suporte a SKY130 e GF180mcu  
+# Versao 2 - Suporte a IHP-SG13G2 130nm (alpha release)                                       #
+#                                                                              #             
+#                                                                              #
+# 08/11/2023						             	               #
 ################################################################################
 
 
@@ -22,7 +25,7 @@ while : ; do
     echo -e '\E[0;31;1m'"
     ###################################################################
     #                                                                 #
-    #        Laboratorio de Circuitos Integrados - LCI                #
+    #        Laboratorio de Circuitos Integrados - LCI/UFSC           #
     #                                                                 #
     #               CONFIGURACAO DO EDA OPEN-SOURCE                   #
     #                                                                 #
@@ -41,6 +44,7 @@ while : ; do
 #
         [0] SKY130                        0.13um
         [1] GF180                         0.18um
+        [2] IHP-SG13G2                    0.13um
         [S] Sair"
 
         read -p $'\n	  Escolha o Design Kit [1]> ' -r DK_OPTION
@@ -51,8 +55,8 @@ while : ; do
 		   export PDK_ROOT=/home/$USER/pdk
                    export PDK=sky130A
                    export KLAYOUT_PATH="$PDK_ROOT/sky130A/libs.tech/klayout"
-                   echo
                    ln -s $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
+                   echo
                    echo "	  SkyWater 130nm selcionado:"
                    echo
                    echo "	  Digite $ xschem"
@@ -64,12 +68,25 @@ while : ; do
 		   export PDK_ROOT=/home/$USER/pdk 
                    export PDK=gf180mcuC
                    export KLAYOUT_PATH="$PDK_ROOT/gf180mcuC/libs.tech/klayout"
-                   echo
                    ln -s $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
-                   echo "GlobalFoundries 180nm 130nm selcionado:"
                    echo
-                   echo "Digite $ xschem"
-                   echo "Digite $ klayout -e"
+                   echo "	  GlobalFoundries 180nm selcionado:"
+                   echo
+                   echo "	  Digite $ xschem"
+                   echo "	  Digite $ klayout -e"
+
+                break
+;;
+                2) export PATH="$PATH:/home/$USER/.local/bin"
+		   export PDK_ROOT=/home/$USER/pdk/
+                   export PDK=IHP-Open-PDK/ihp-sg13g2/
+                   export KLAYOUT_PATH="$PDK_ROOT/$PDK/libs.tech/klayout"
+                   ln -s $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
+                   echo
+                   echo "         IHP-SG13G2 130nm selcionado (Alpha release):"
+                   echo
+                   echo "	  Digite $ xschem"
+                   echo "	  Digite $ klayout -e"
 
                 break
 ;;

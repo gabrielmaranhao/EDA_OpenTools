@@ -1,7 +1,7 @@
 ##### Open-Source PDK on ngspice+xschem+gaw+klayout+magic on Ubuntu 22
 
-##### By: Gabriel Maranhao - LCI-UFSC (last edit: 18/10/2023)
-##### TO-DO: Improve SKY for Klayout
+##### By: Gabriel Maranhao - LCI-UFSC (last edit: 08/11/2023)
+##### TO-DO: Improve SKY for Klayout, Add IHP
 
 -> xscheme - A schematic capture tool
 -> ngspice - A circuit simulator
@@ -87,9 +87,9 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 	      	
 5) Install KLayout (Download  at https://www.klayout.de/build.html)
 
-	     $ wget https://www.klayout.org/downloads/Ubuntu-22/klayout_0.28.10-1_amd64.deb
+	     $ wget https://www.klayout.org/downloads/Ubuntu-22/klayout_0.28.12-1_amd64.deb
 	     $ sudo apt install gdebi
-	     $ sudo gdebi ./klayout_0.28.10-1_amd64.deb
+	     $ sudo gdebi ./klayout_0.28.12-1_amd64.deb
 	     $ sudo gedit ~/.bashrc
 	      	- Add follow lines:
 			export KLAYOUT_PATH="$PDK_ROOT/gf180mcuC/libs.tech/klayout"
