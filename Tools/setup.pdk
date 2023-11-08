@@ -54,26 +54,28 @@ while : ; do
                 0) export PATH="$PATH:/home/$USER/.local/bin"
 		   export PDK_ROOT=/home/$USER/pdk
                    export PDK=sky130A
-                   export KLAYOUT_PATH="$PDK_ROOT/sky130A/libs.tech/klayout"
+                   export KLAYOUT_PATH="$PDK_ROOT/$PDK/libs.tech/klayout"
                    ln -s $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
                    echo
                    echo "	  SkyWater 130nm selcionado:"
                    echo
                    echo "	  Digite $ xschem"
                    echo "	  Digite $ klayout -e"
+                   echo "	  Digite $ magic.run"
 
                 break
 ;;
                 1) export PATH="$PATH:/home/$USER/.local/bin"
 		   export PDK_ROOT=/home/$USER/pdk 
-                   export PDK=gf180mcuC
-                   export KLAYOUT_PATH="$PDK_ROOT/gf180mcuC/libs.tech/klayout"
+                   export PDK=gf180mcuD
+                   export KLAYOUT_PATH="$PDK_ROOT/$PDK/libs.tech/klayout"
                    ln -s $PDK_ROOT/$PDK/libs.tech/xschem/xschemrc
                    echo
                    echo "	  GlobalFoundries 180nm selcionado:"
                    echo
                    echo "	  Digite $ xschem"
                    echo "	  Digite $ klayout -e"
+                   echo "	  Digite $ magic.run"
 
                 break
 ;;

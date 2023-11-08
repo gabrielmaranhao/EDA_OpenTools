@@ -10,4 +10,5 @@
 
 
 alias setup.pdk="source /usr/local/bin/setup.pdk"
+alias magic.run="source /usr/local/bin/magic.run"
 export PATH="$PATH:/home/$USER/.local/bin"
