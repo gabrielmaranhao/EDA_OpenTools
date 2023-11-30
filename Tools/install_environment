@@ -191,3 +191,7 @@ EXTRAS:
 - Install Volare, get all PDK's (GF and SKY)
 - Klayout fix, Google drive link
 - Do all steps of 5.1 for DRC and LVS
+
+#Find ".sch" file and change all symbols path (work only inside the directory)
+---------------------------
+find . -maxdepth 1 -name '*.sch' -exec sed -i 's|OLD_PATH|NEW_PATH|g' {} \;
