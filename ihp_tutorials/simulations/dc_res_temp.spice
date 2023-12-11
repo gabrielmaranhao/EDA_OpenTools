@@ -1,0 +1,39 @@
+** sch_path: /home/gmaranhao/pdk/IHP-Open-PDK/ihp-sg13g2/libs.tech/xschem/sg13g2_tests/dc_res_temp.sch
+**.subckt dc_res_temp
+Vres Vcc GND 1.5
+Vsil Vcc net1 0
+.save i(vsil)
+Vppd Vcc net2 0
+.save i(vppd)
+Vrh Vcc net3 0
+.save i(vrh)
+XR1 GND net1 rsil w=0.5e-6 l=0.5e-5 m=1 R=7.0 Imax=0.3e-6
+XR2 GND net2 rppd w=0.5e-6 l=0.5e-6 m=1 R=7.0 Imax=0.3e-6
+XR3 GND net3 rhigh w=0.5e-6 l=0.96e-6 m=1 R=1360.0 Imax=0.3e-6
+**** begin user architecture code
+
+.lib /home/gmaranhao/pdk/IHP-Open-PDK/ihp-sg13g2/libs.tech/ngspice/models/cornerRES.lib res_typ
+
+
+
+.param temp=27
+.control
+save all
+op
+echo Silicide resisotr value:
+print Vcc/I(Vsil)
+echo Unsilicide poly resisotr value:
+print Vcc/I(Vppd)
+echo High poly resisotr value:
+print Vcc/I(Vrh)
+reset
+dc temp -40 125 1
+write dc_res_temp.raw
+wrdata dc_res_temp.csv I(Vsil) I(Vppd) I(Vrh)
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

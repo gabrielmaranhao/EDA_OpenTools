@@ -1,0 +1,31 @@
+** sch_path: /home/gmaranhao/Desktop/ihp130_work/nmos_op.sch
+**.subckt nmos_op
+V3 net1 GND 0
+Vs net2 GND 0
+XM1 net2 vg vg net1 sg13_lv_nmos W=10u L=0.12u ng=1 m=1
+I0 net3 vg 1u
+Vs1 net3 GND 1.5
+**** begin user architecture code
+
+.lib /home/gmaranhao/pdk/IHP-Open-PDK/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+
+
+
+.option gmin = 1e-24
+
+.control
+pre_osdi ./psp103_nqs.osdi
+save all
+
+remzerovec
+op
+write nmos_op.raw
+
+.endc
+
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

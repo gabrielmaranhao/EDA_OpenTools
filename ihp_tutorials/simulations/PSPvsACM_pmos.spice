@@ -1,0 +1,38 @@
+** sch_path: /home/gmaranhao/Desktop/ihp130_work/PSPvsACM_pmos.sch
+**.subckt PSPvsACM_pmos
+VG vg GND 0
+VD1 net5 GND {vd}
+VB net1 GND 1.5
+VS vd GND 1.5
+VB3 net2 GND 1.5
+VS_acm net3 GND 1.5
+VD2 net4 GND {vd}
+XM1 net5 vg vd net1 sg13_lv_pmos W=1.0u L=0.45u ng=1 m=1
+N1 net4 vg net3 net2 PMOS_ACM w=10u l=0.12u n=1.466 is=9.391u vt0=0.4786 sigma=48.4m zeta=31m
+**** begin user architecture code
+
+
+
+.param vd=0
+
+.control
+pre_osdi ./psp103_nqs.osdi
+pre_osdi /home/gmaranhao/Desktop/gf180_work/ACM/PMOS_ACM_2V0.osdi
+save all
+
+dc VG 0 1.5 1m
+remzerovec
+write PSPvsACM_pmos.raw
+
+.endc
+
+
+
+.lib /home/gmaranhao/pdk/IHP-Open-PDK/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+.model NMOS_ACM nmos_ACM
+.model PMOS_ACM pmos_ACM
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

@@ -1,0 +1,57 @@
+** sch_path: /home/gmaranhao/Desktop/ihp130_work/Extraction/nmos_ext.sch
+**.subckt nmos_ext
+Vds net1 GND 13m
+V3 net2 GND 0
+Vs net3 GND 0
+Vgb vg GND 0
+XM1 net3 vg net1 net2 sg13_lv_nmos W=10u L=0.5u ng=1 m=1
+**** begin user architecture code
+
+.lib /home/gmaranhao/pdk/IHP-Open-PDK/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+
+
+
+.option gmin = 1e-24
+
+.control
+pre_osdi ./psp103_nqs.osdi
+save all
+dc Vgb -0.1 1.5 1m
+
+let gm_id = deriv(ln(i(Vs)))
+save gm_id
+
+meas dc gm_id_max MAX gm_id
+let gm_id_vt = 0.531*gm_id_max
+save gm_id_vt
+
+meas dc vt0 FIND V(vg) WHEN gm_id=gm_id_vt
+meas dc is_ FIND i(Vs) WHEN V(vg)=vt0
+
+let is = is_/0.88
+let VT_val=0.026
+let n = 1/(gm_id_max*VT_val)
+save is vt0 n
+echo
+echo
+echo
+
+echo Extracted parameters:
+print is vt0 n
+
+
+echo
+echo
+echo
+
+remzerovec
+write nmos_ext.raw
+
+.endc
+
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

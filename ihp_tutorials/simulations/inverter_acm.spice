@@ -1,0 +1,66 @@
+** sch_path: /home/gmaranhao/Desktop/ihp130_work/inverter_acm.sch
+**.subckt inverter_acm
+VDD1 VDD1 GND 1.5
+XM1 out_psp VIN net2 GND sg13_lv_nmos W=10.0u L=0.12u ng=1 m=1
+XM2 out_psp VIN VDD1 VDD1 sg13_lv_pmos W=10.0u L=0.12u ng=1 m=1
+VDD2 VDD2 GND 1.5
+N1 out_acm VIN net1 GND NMOS_ACM w=10u l=0.12u n=1.414 is=11.77u vt0=0.4902 sigma=53.4m zeta=7m
+N2 out_acm VIN VDD2 VDD2 PMOS_ACM w=10u l=0.12u n=1.466 is=9.391u vt0=0.4786 sigma=48.4m zeta=31m
+Vin VIN GND pulse(0 1.5 10p 10p 10p 200p 400p)
+Vi_psp net2 GND 0
+.save i(vi_psp)
+Vi_acm net1 GND 0
+.save i(vi_acm)
+C1 out_acm GND 100f m=1
+C2 out_psp GND 100f m=1
+**** begin user architecture code
+
+
+
+.control
+pre_osdi ./psp103_nqs.osdi
+pre_osdi ./NMOS_ACM_2V0.osdi
+pre_osdi ./PMOS_ACM_2V0.osdi
+save all
+
+remzerovec
+tran 1p 100p
+write inverter_acm.raw
+*wrdata /home/gmaranhao/Desktop/ihp130_work/Inverter_data/inverter_tran_1p5_W10u0_L0u12_V_PSP.txt
+*+ V(out_psp)
+*wrdata /home/gmaranhao/Desktop/ihp130_work/Inverter_data/inverter_tran_1p5_W10u0_L0u12_I_PSP.txt
+*+ i(Vi_psp)
+*wrdata /home/gmaranhao/Desktop/ihp130_work/Inverter_data/inverter_tran_1p5_W10u0_L0u12_V_ACM.txt
+*+ V(out_acm)
+*wrdata /home/gmaranhao/Desktop/ihp130_work/Inverter_data/inverter_tran_1p5_W10u0_L0u12_I_ACM.txt
+*+ i(Vi_acm)
+wrdata /home/gmaranhao/Desktop/ihp130_work/Inverter_data/inverter_tran_1p5_W10u0_L0u12_I_ACM_vin.txt
++ V(VIN)
+
+set appendwrite
+
+remzerovec
+dc Vin 0 1 10m
+write inverter_acm.raw
+*wrdata /home/gmaranhao/Desktop/ihp130_work/Inverter_data/inverter_DC_1p0_W10u0_L0u12_V_PSP.txt
+*+ V(out_psp)
+*wrdata /home/gmaranhao/Desktop/ihp130_work/Inverter_data/inverter_DC_1p0_W10u0_L0u12_I_PSP.txt
+*+ i(Vi_psp)
+*wrdata /home/gmaranhao/Desktop/ihp130_work/Inverter_data/inverter_DC_1p0_W10u0_L0u12_V_ACM.txt
+*+ V(out_acm)
+*wrdata /home/gmaranhao/Desktop/ihp130_work/Inverter_data/inverter_DC_1p0_W10u0_L0u12_I_ACM.txt
+*+ i(Vi_acm)
+
+.endc
+
+
+
+
+.lib /home/gmaranhao/pdk/IHP-Open-PDK/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+.model NMOS_ACM nmos_ACM
+.model PMOS_ACM pmos_ACM
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

@@ -1,0 +1,62 @@
+** sch_path: /home/gmaranhao/Desktop/ihp130_work/Extraction/nmos_sigma_ext.sch
+**.subckt nmos_sigma_ext
+x1 Vg Vd2 Vd GND ampOp_ideal
+I0 net1 Vd2 10n
+Vd_bias Vd GND 0
+Vdd net1 GND 1.5
+XM1 Vd2 Vg GND GND sg13_lv_nmos W=10u L=0.12u ng=1 m=1
+**** begin user architecture code
+
+
+
+.option gmin = 1e-18
+
+.nodeset V(vd2)=1.5
+
+.control
+pre_osdi ./psp103_nqs.osdi
+save all
+
+dc Vd_bias  0.05 1.5 25.9m
+
+let vd_interp = 1.5/3
+let sigma = -deriv(V(vg))/deriv(V(vd))
+save sigma
+
+echo
+echo
+echo
+
+
+echo Sigma @ VD=$&vd_interp:
+meas dc sigma_value FIND sigma WHEN V(vd)=vd_interp
+
+echo
+echo
+echo
+write nmos_sigma_ext.raw
+
+.endc
+
+
+
+
+
+.lib /home/gmaranhao/pdk/IHP-Open-PDK/ihp-sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /home/gmaranhao/Desktop/gf180_work/auxLib/ampOp_ideal.sym # of pins=4
+** sym_path: /home/gmaranhao/Desktop/gf180_work/auxLib/ampOp_ideal.sym
+** sch_path: /home/gmaranhao/Desktop/gf180_work/auxLib/ampOp_ideal.sch
+.subckt ampOp_ideal out + - gnd
+*.iopin -
+*.iopin gnd
+*.iopin +
+*.iopin out
+E1 out gnd + - 1000
+.ends
+
+.GLOBAL GND
+.end
