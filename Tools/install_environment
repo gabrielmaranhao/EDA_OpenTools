@@ -43,7 +43,7 @@ sudo apt-get install gcc g++ make qtbase5-dev qttools5-dev libqt5xmlpatterns5-de
 	      	- 2.1) copy "ngspice-40.tar.gz" to \opt and follow instructions:
 	      $ sudo tar -xf ngspice-40.tar.gz
 	      $ cd ngspice-40/
-	      $ sudo ./configure --with-x --disable-debug --enable-cider --with-readline=yes --enable-openmp --enable-osdi
+	      $ sudo ./configure --with-x --disable-debug --enable-cider --with-readline=yes --enable-openmp --enable-osdi --enable-predictor
 	      $ sudo ./autogen.sh
 	      $ sudo make
 	      $ sudo make install
