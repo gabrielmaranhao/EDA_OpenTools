@@ -344,17 +344,17 @@
  </properties>
  <properties>
   <expanded>false</expanded>
-  <frame-color>#67392f</frame-color>
-  <fill-color>#67392f</fill-color>
+  <frame-color>#404040</frame-color>
+  <fill-color>#404040</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
-  <dither-pattern>I5</dither-pattern>
-  <line-style/>
+  <dither-pattern>I1</dither-pattern>
+  <line-style>I2</line-style>
   <valid>true</valid>
   <visible>true</visible>
   <transparent>false</transparent>
-  <width>1</width>
-  <marked>false</marked>
+  <width>3</width>
+  <marked>true</marked>
   <xfill>false</xfill>
   <animation>0</animation>
   <name/>
@@ -452,18 +452,18 @@
  </properties>
  <properties>
   <expanded>false</expanded>
-  <frame-color>#ff00ff</frame-color>
-  <fill-color>#e1d8ca</fill-color>
+  <frame-color>#ff0000</frame-color>
+  <fill-color>#ff0000</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
-  <dither-pattern>I13</dither-pattern>
+  <dither-pattern>I1</dither-pattern>
   <line-style/>
   <valid>true</valid>
   <visible>true</visible>
   <transparent>false</transparent>
-  <width>2</width>
+  <width>3</width>
   <marked>true</marked>
-  <xfill>true</xfill>
+  <xfill>false</xfill>
   <animation>0</animation>
   <name/>
   <source>Via2 38/0@1</source>
@@ -596,29 +596,29 @@
  </properties>
  <properties>
   <expanded>false</expanded>
-  <frame-color>#72342b</frame-color>
-  <fill-color>#72342b</fill-color>
+  <frame-color>#805000</frame-color>
+  <fill-color>#805000</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
-  <dither-pattern>I5</dither-pattern>
+  <dither-pattern>I15</dither-pattern>
   <line-style/>
   <valid>true</valid>
   <visible>true</visible>
   <transparent>false</transparent>
-  <width>1</width>
+  <width>2</width>
   <marked>false</marked>
-  <xfill>false</xfill>
+  <xfill>true</xfill>
   <animation>0</animation>
   <name/>
   <source>Pad 37/0@1</source>
  </properties>
  <properties>
   <expanded>false</expanded>
-  <frame-color>#1437ff</frame-color>
-  <fill-color>#1437ff</fill-color>
+  <frame-color>#c0c0c0</frame-color>
+  <fill-color>#c0c0c0</fill-color>
   <frame-brightness>0</frame-brightness>
   <fill-brightness>0</fill-brightness>
-  <dither-pattern>I9</dither-pattern>
+  <dither-pattern>I21</dither-pattern>
   <line-style/>
   <valid>true</valid>
   <visible>true</visible>
@@ -2105,6 +2105,42 @@
   <animation>0</animation>
   <name/>
   <source>Border 63/0@1</source>
+ </properties>
+ <properties>
+  <expanded>false</expanded>
+  <frame-color>#ffa080</frame-color>
+  <fill-color>#ffa080</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I5</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width/>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name/>
+  <source>23/5@1</source>
+ </properties>
+ <properties>
+  <expanded>false</expanded>
+  <frame-color>#ffc280</frame-color>
+  <fill-color>#ffc280</fill-color>
+  <frame-brightness>0</frame-brightness>
+  <fill-brightness>0</fill-brightness>
+  <dither-pattern>I9</dither-pattern>
+  <line-style/>
+  <valid>true</valid>
+  <visible>true</visible>
+  <transparent>false</transparent>
+  <width/>
+  <marked>false</marked>
+  <xfill>false</xfill>
+  <animation>0</animation>
+  <name/>
+  <source>58/0@1</source>
  </properties>
  <name/>
 </layer-properties>
